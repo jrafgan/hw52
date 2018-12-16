@@ -1,28 +1,34 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import Bingo from './components/bloc_div.js';
 import './App.css';
 
+
+
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
+    state = {
+        number: arr,
+    };
+
+    changeNumber = () => {
+        rand();
+        this.setState({number: arr});
+    };
+
+    render() {
+        return (
+            <div className="App">
+                <div className="block">
+                    <h1 className="h1">Bingo 5 of 36</h1>
+                    <div >
+                        {this.state.number.map ((num, key) => {
+                            return <Bingo key={key} num={this.state.number[key]} />
+                        })}
+                    </div>
+                    <button className="btn" onClick={this.changeNumber}>New Numbers</button>
+                </div>
+            </div>
+        );
+    }
 }
 
 export default App;
